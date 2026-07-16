@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Photo Gallery</title>
+  <meta name="description" content="An immersive 3D photo gallery with curved scroll animation" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body><div id='error-log' style='position:fixed;top:50%;left:0;color:red;z-index:9999;'></div><script>window.onerror = function(msg) { document.getElementById('error-log').innerText += msg + '\n'; };</script>
+  <canvas id="gallery-canvas"></canvas>
+
+  <header class="header">
+    <a href="#" class="header__logo">STUDIO</a>
+    <nav class="header__nav">
+      <a href="#" class="header__link active">Photo</a>
+      <a href="#" class="header__link">Video</a>
+      <a href="#" class="header__link">About</a>
+      <a href="#" class="header__link">Contact</a>
+    </nav>
+    <a href="mailto:hello@studio.com" class="header__email">hello@studio.com</a>
+  </header>
+
+  <div class="labels-layer" id="labels-layer"></div>
+
+  <div class="scroll-hint" id="scroll-hint">
+    <div class="scroll-hint__icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </div>
+    <span class="scroll-hint__text">Scroll or drag to explore</span>
+  </div>
+
+  <footer class="footer">
+    <span class="footer__counter" id="counter">01 / 12</span>
+    <span class="footer__tag">Photography Portfolio</span>
+  </footer>
+
+  <!-- Detail View Overlay -->
+  <div class="detail-view hidden" id="detail-view">
+    <button class="detail-view__close" id="close-detail">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="detail-view__left">
+      <div class="detail-view__kicker">EXHIBITION</div>
+      <h1 class="detail-view__title" id="detail-title"></h1>
+      <p class="detail-view__desc" id="detail-desc"></p>
+      
+      <div class="detail-view__meta">
+        <div class="meta-item">
+          <span class="meta-label">Client</span>
+          <span class="meta-value">TQS Brand</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Photography</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Year</span>
+          <span class="meta-value">2026</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="detail-view__right" id="detail-scroll-wrapper">
+      <div class="detail-view__scroll-content" id="detail-scroll-content">
+        <div class="detail-view__grid" id="detail-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
