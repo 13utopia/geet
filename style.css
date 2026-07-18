@@ -2,8 +2,8 @@
   --bg-color: #0d0d0d;
   --text-color: #ffffff;
   --accent-color: #555555;
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Inter Tight', sans-serif;
+  --font-display: 'Inter Tight', sans-serif;
 }
 
 * {
@@ -179,7 +179,7 @@ body {
   top: 0;
   left: 0;
   pointer-events: none;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   color: #ffffff;
   will-change: transform, opacity;
 }
@@ -273,7 +273,7 @@ body {
 }
 
 .detail-view__title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 5rem;
   font-style: italic;
   margin-bottom: 2rem;
