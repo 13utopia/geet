@@ -1,64 +1,76 @@
 // Original data
 const originalItems = [
   {
-    "id": "bas",
-    "img": "Instagram/BAS/main.webp",
-    "name1": "The",
-    "name2": "BAS",
-    "description": "A showcase of brand aesthetics and visual identity for BAS.",
-    "gridImages": [
-      "Instagram/BAS/imageye___-_imgi_15_702611919_17875332687656926_6306002636948471957_n 1.webp",
-      "Instagram/BAS/imageye___-_imgi_16_703222689_17875328646656926_8258969267493730849_n 1.webp",
-      "Instagram/BAS/imageye___-_imgi_17_700944829_17874943077656926_7564662826366586197_n 1.webp"
-    ]
-  },
-  {
-    "id": "chintamani-jewellers",
-    "img": "Instagram/Chintamani Jewellers/main.webp",
-    "name1": "Chintamani Jewellers",
+    "id": "13utopia",
+    "img": "website/13utopia.png",
+    "websiteUrl": "https://13utopia.com/",
+    "name1": "13utopia",
     "name2": "",
-    "description": "A showcase of brand aesthetics and visual identity for Chintamani Jewellers.",
-    "gridImages": [
-      "Instagram/Chintamani Jewellers/1 1.webp",
-      "Instagram/Chintamani Jewellers/2 1.webp",
-      "Instagram/Chintamani Jewellers/3 1.webp"
-    ]
+    "description": "Website preview for 13utopia",
+    "gridImages": []
   },
   {
-    "id": "fujitech-express",
-    "img": "Instagram/Fujitech Express/main.webp",
-    "name1": "Fujitech",
-    "name2": "Express",
-    "description": "A showcase of brand aesthetics and visual identity for Fujitech Express.",
-    "gridImages": [
-      "Instagram/Fujitech Express/image (1) 1.webp",
-      "Instagram/Fujitech Express/image (2) 1.webp",
-      "Instagram/Fujitech Express/image (3) 1.webp"
-    ]
+    "id": "thedietdiary",
+    "img": "website/thedietdiary.in.png",
+    "websiteUrl": "https://thedietdiary.in/",
+    "name1": "The Diet",
+    "name2": "Diary",
+    "description": "Website preview for The Diet Diary",
+    "gridImages": []
   },
   {
-    "id": "mayur-dairy-&-sweets",
-    "img": "Instagram/Mayur dairy & sweets/main.webp",
-    "name1": "Mayur",
-    "name2": "Dairy",
-    "description": "A showcase of brand aesthetics and visual identity for Mayur dairy & sweets.",
-    "gridImages": [
-      "Instagram/Mayur dairy & sweets/mayur bag 1 1.webp",
-      "Instagram/Mayur dairy & sweets/mayur bag 2 1.webp",
-      "Instagram/Mayur dairy & sweets/mayur bag 3 1.webp"
-    ]
+    "id": "lotusimpex",
+    "img": "website/lotusimpex.co.in.png",
+    "websiteUrl": "https://lotusimpex.co.in/",
+    "name1": "Lotus",
+    "name2": "Impex",
+    "description": "Website preview for Lotus Impex",
+    "gridImages": []
   },
   {
-    "id": "tqs",
-    "img": "Instagram/TQS/main.webp",
-    "name1": "The",
-    "name2": "TQS",
-    "description": "A showcase of brand aesthetics and visual identity for TQS.",
-    "gridImages": [
-      "Instagram/TQS/TQS coaster (2) 1.webp",
-      "Instagram/TQS/TQS coaster (4) 1.webp",
-      "Instagram/TQS/tqs exhibition (1) 1.webp"
-    ]
+    "id": "taowater",
+    "img": "website/taowater.13utopiabizboost.com.png",
+    "websiteUrl": "https://taowater.13utopiabizboost.com/",
+    "name1": "Tao",
+    "name2": "Water",
+    "description": "Website preview for Tao Water",
+    "gridImages": []
+  },
+  {
+    "id": "swaadus",
+    "img": "website/swaadus.com.png",
+    "websiteUrl": "https://swaadus.com/",
+    "name1": "Swaadus",
+    "name2": "",
+    "description": "Website preview for Swaadus",
+    "gridImages": []
+  },
+  {
+    "id": "13utopiabizboost",
+    "img": "website/13utopiabizboost.com.png",
+    "websiteUrl": "https://13utopiabizboost.com/",
+    "name1": "Biz",
+    "name2": "Boost",
+    "description": "Website preview for 13utopia BizBoost",
+    "gridImages": []
+  },
+  {
+    "id": "kumarcotton",
+    "img": "website/kumarcotton.com.png",
+    "websiteUrl": "https://kumarcotton.com/",
+    "name1": "Kumar",
+    "name2": "Cotton",
+    "description": "Website preview for Kumar Cotton",
+    "gridImages": []
+  },
+  {
+    "id": "tanyadentalhouse",
+    "img": "website/tanyadentalhouse.in.png",
+    "websiteUrl": "https://tanyadentalhouse.in/",
+    "name1": "Tanya",
+    "name2": "Dental",
+    "description": "Website preview for Tanya Dental House",
+    "gridImages": []
   }
 ];
 
@@ -73,14 +85,14 @@ const config = {
   yStep: 0.4,                // Smaller vertical spacing
   baseRadius: 3.2,           // Base radius of the tornado
   radiusGrowth: 0.0,         
-  wheelFactor: 2.0,
+  wheelFactor: 3.5,          // INCREASED: Faster mouse wheel spin
   wheelDirection: -1,
   cameraPosition: [0, 0, 5.0],
   velocityDecay: 0.95,
-  maxVelocity: 50,
+  maxVelocity: 80,           // INCREASED: Higher max speed cap
   itemWidth: 2.0,
   itemHeight: 1.125,
-  touchDragFactor: 0.05,
+  touchDragFactor: 0.08,     // INCREASED: Faster touch/drag spin
   touchMomentumScale: 40
 };
 
@@ -121,6 +133,14 @@ class TornadoSlider3D {
     this.lastTime = 0;
     this.dragDistance = 0;
     
+    // Animation State
+    this.selectedMesh = null;
+    this.hoveredMesh = null;
+    this.animProgress = 0;
+    this.introProgress = 0.0;
+    this.isAnimatingToIframe = false;
+    this.isAnimatingFromIframe = false;
+    
     // Raycaster for clicks
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
@@ -133,8 +153,19 @@ class TornadoSlider3D {
     this.detailGrid = document.getElementById('detail-grid');
     this.closeBtn = document.getElementById('close-detail');
     
+    // Bind Iframe Lightbox
+    this.iframeLightbox = document.getElementById('iframe-lightbox');
+    this.iframeContainer = this.iframeLightbox.querySelector('.iframe-lightbox__content');
+    this.closeIframeBtn = document.getElementById('close-iframe');
+    
+    // Map to store preloaded iframes
+    this.iframes = {};
+    
     if (this.closeBtn) {
       this.closeBtn.addEventListener('click', () => this.closeDetailView());
+    }
+    if (this.closeIframeBtn) {
+      this.closeIframeBtn.addEventListener('click', () => this.closeIframeView());
     }
     
     this.init();
@@ -165,6 +196,11 @@ class TornadoSlider3D {
       uniform sampler2D tDiffuse;
       uniform float uOpacity;
       uniform float uFrontFactor;
+      uniform float uTextureAspect;
+      uniform float uMeshAspect;
+      uniform float uBlurAmount;
+      uniform float uAberration;
+      uniform float uHoverState;
       varying vec2 vUv;
       
       // SDF for a rounded box
@@ -172,28 +208,54 @@ class TornadoSlider3D {
           return length(max(abs(CenterPosition) - Size + Radius, 0.0)) - Radius;
       }
       
+      // 9-tap Gaussian blur helper
+      vec4 blur9(sampler2D image, vec2 uv, vec2 resolution, vec2 direction) {
+        vec4 color = vec4(0.0);
+        vec2 off1 = vec2(1.3846153846) * direction;
+        vec2 off2 = vec2(3.2307692308) * direction;
+        color += texture2D(image, uv) * 0.2270270270;
+        color += texture2D(image, uv + (off1 / resolution)) * 0.3162162162;
+        color += texture2D(image, uv - (off1 / resolution)) * 0.3162162162;
+        color += texture2D(image, uv + (off2 / resolution)) * 0.0702702703;
+        color += texture2D(image, uv - (off2 / resolution)) * 0.0702702703;
+        return color;
+      }
+      
       void main() {
-        vec2 uvCropped = vUv;
-        // Scale UV Y axis by height/width to crop square image to 16:9 without stretching
-        uvCropped.y = (vUv.y - 0.5) * 0.5625 + 0.5;
-        
-        // Pixelation effect for back images
-        float pixelSize = 1.0;
-        if (uFrontFactor < 0.6) {
-            pixelSize = 1.0 + (0.6 - uFrontFactor) * 30.0;
+        vec2 baseUv = vUv;
+        // Inner zoom effect on hover
+        if (uHoverState > 0.0) {
+            baseUv = (baseUv - 0.5) * (1.0 - uHoverState * 0.03) + 0.5;
         }
+        
+        vec2 uvCropped = baseUv - 0.5;
+        // Dynamic object-fit: cover logic
+        if (uTextureAspect > uMeshAspect) {
+           uvCropped.x *= uMeshAspect / uTextureAspect;
+        } else {
+           uvCropped.y *= uTextureAspect / uMeshAspect;
+        }
+        uvCropped += 0.5;
         
         vec2 uvPixelated = uvCropped;
-        if (pixelSize > 1.0) {
-            vec2 res = vec2(800.0, 800.0);
-            uvPixelated = floor(uvCropped * res / pixelSize) * pixelSize / res;
-        }
         
-        vec4 texColor = texture2D(tDiffuse, uvPixelated);
+        // Chromatic Aberration & Blur
+        vec4 texColor = vec4(0.0);
+        if (uBlurAmount > 0.0 || uAberration > 0.0) {
+            vec2 res = vec2(1000.0, 1000.0); 
+            
+            vec4 cR = blur9(tDiffuse, uvPixelated - vec2(uAberration, 0.0), res, vec2(uBlurAmount, uBlurAmount));
+            vec4 cG = blur9(tDiffuse, uvPixelated, res, vec2(uBlurAmount, uBlurAmount));
+            vec4 cB = blur9(tDiffuse, uvPixelated + vec2(uAberration, 0.0), res, vec2(uBlurAmount, uBlurAmount));
+            
+            texColor = vec4(cR.r, cG.g, cB.b, cG.a);
+        } else {
+            texColor = texture2D(tDiffuse, uvPixelated);
+        }
         
         // Darken back images
         if (uFrontFactor < 0.6) {
-            texColor.rgb *= 0.15 + max(0.0, uFrontFactor) * 0.8;
+            texColor.rgb *= 0.4 + max(0.0, uFrontFactor) * 0.6;
         }
         
         // Calculate rounded corners
@@ -213,25 +275,50 @@ class TornadoSlider3D {
     const geometry = new THREE.PlaneGeometry(config.itemWidth, config.itemHeight, 32, 2);
     
     items.forEach((item, index) => {
-      const texture = textureLoader.load(item.img);
+      const uniforms = {
+        tDiffuse: { value: null },
+        uRadius: { value: config.baseRadius },
+        uOpacity: { value: 1.0 },
+        uFrontFactor: { value: 1.0 },
+        uTextureAspect: { value: 1.0 },
+        uMeshAspect: { value: config.itemWidth / config.itemHeight },
+        uBlurAmount: { value: 0.0 },
+        uAberration: { value: 0.0 },
+        uHoverState: { value: 0.0 }
+      };
+
+      uniforms.tDiffuse.value = textureLoader.load(item.img, (tex) => {
+        if (tex.image && tex.image.width) {
+          uniforms.uTextureAspect.value = tex.image.width / tex.image.height;
+        }
+      });
       
       const material = new THREE.ShaderMaterial({
         vertexShader,
         fragmentShader,
-        uniforms: {
-          tDiffuse: { value: texture },
-          uRadius: { value: config.baseRadius },
-          uOpacity: { value: 1.0 },
-          uFrontFactor: { value: 1.0 }
-        },
+        uniforms: uniforms,
         transparent: true,
         side: THREE.DoubleSide
       });
       
       const mesh = new THREE.Mesh(geometry, material);
+      mesh.userData.url = item.websiteUrl;
       
       this.meshes.push(mesh);
       this.group.add(mesh);
+      
+      // Preload iframe if it has a websiteUrl
+      if (item.websiteUrl && !this.iframes[item.websiteUrl]) {
+          const iframe = document.createElement('iframe');
+          iframe.src = item.websiteUrl;
+          iframe.frameBorder = "0";
+          iframe.style.width = "100%";
+          iframe.style.height = "100%";
+          iframe.style.display = "none";
+          iframe.style.border = "none";
+          this.iframeContainer.appendChild(iframe);
+          this.iframes[item.websiteUrl] = iframe;
+      }
     });
   }
   
@@ -260,19 +347,32 @@ class TornadoSlider3D {
     });
     
     window.addEventListener('pointermove', (e) => {
-      if (!this.isDragging) return;
+      this.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      this.mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
       
-      // Allow both X and Y dragging to spin the tornado
-      const dx = e.clientX - this.lastX;
-      const dy = e.clientY - this.lastY;
-      const dragAmount = dx - dy; // Dragging left or up spins it one way
-      
-      this.dragDistance += Math.abs(dx) + Math.abs(dy);
-      this.velocity -= dragAmount * config.touchDragFactor;
-      
-      this.lastX = e.clientX;
-      this.lastY = e.clientY;
-      this.lastTime = performance.now();
+      if (this.isDragging) {
+        // Allow both X and Y dragging to spin the tornado
+        const dx = e.clientX - this.lastX;
+        const dy = e.clientY - this.lastY;
+        const dragAmount = dx - dy; // Dragging left or up spins it one way
+        
+        this.dragDistance += Math.abs(dx) + Math.abs(dy);
+        this.velocity -= dragAmount * config.touchDragFactor;
+        
+        this.lastX = e.clientX;
+        this.lastY = e.clientY;
+        this.lastTime = performance.now();
+      } else if (!this.isDetailOpen && !this.selectedMesh) {
+        this.raycaster.setFromCamera(this.mouse, this.camera);
+        const intersects = this.raycaster.intersectObjects(this.meshes);
+        if (intersects.length > 0) {
+            this.hoveredMesh = intersects[0].object;
+            document.body.style.cursor = 'pointer';
+        } else {
+            this.hoveredMesh = null;
+            document.body.style.cursor = 'default';
+        }
+      }
     });
     
     window.addEventListener('pointerup', (e) => {
@@ -307,7 +407,10 @@ class TornadoSlider3D {
     // Momentum / Velocity decay
     this.velocity *= config.velocityDecay;
     
-    // Stop completely if very slow
+    // Stop completely if very slow, or drastically if a mesh is selected
+    if (this.selectedMesh || this.isDetailOpen) {
+      this.velocity *= 0.5;
+    }
     if (Math.abs(this.velocity) < 0.01) {
       this.velocity = 0;
     }
@@ -326,6 +429,10 @@ class TornadoSlider3D {
       counterEl.innerText = `${(centerIndex + 1).toString().padStart(2, '0')} / ${totalItems}`;
     }
     
+    if (this.introProgress < 1.0) {
+        this.introProgress += 0.008; // Intro animation speed
+    }
+
     this.meshes.forEach((mesh, i) => {
       // Continuous index mapped around the scroll position
       let t = (i + this.scrollPosition);
@@ -341,34 +448,117 @@ class TornadoSlider3D {
       
       // Radius can increase as it goes up (tornado effect)
       let r = config.baseRadius + y * config.radiusGrowth;
-      // Pass the local radius to the shader so the bend matches the placement
-      mesh.material.uniforms.uRadius.value = Math.max(0.1, r);
       
-      // Position on the cylinder
-      mesh.position.x = Math.sin(angle) * r;
-      mesh.position.z = Math.cos(angle) * r - config.baseRadius; // Shift center so front is near 0
-      mesh.position.y = y;
+      let tX = Math.sin(angle) * r;
+      let tZ = Math.cos(angle) * r - config.baseRadius;
+      let tY = y;
       
-      // Face outward
-      mesh.rotation.y = angle;
-      // Pitch dynamically based on Y position (tilt at ends, flat in center)
-      mesh.rotation.x = y * 0.15;
-      mesh.rotation.z = 0.05 * Math.sin(angle); // slight roll effect based on position
+      // Aerodynamic Pitch based on scroll speed (clamped to max 30 degrees)
+      // Removing the Z-tilt as it breaks the cylinder structure
+      let tiltX = Math.max(-0.5, Math.min(0.5, this.velocity * 0.01)); 
+      
+      let tRotX = y * 0.15 + tiltX;
+      let tRotY = angle;
+      let tRotZ = 0.05 * Math.sin(angle);
+      
+      // Fly-in Entrance Animation
+      let itemIntro = Math.min(1.0, Math.max(0.0, (this.introProgress - i * 0.02) * 5.0));
+      let introEase = itemIntro === 1.0 ? 1.0 : 1.0 - Math.pow(2, -10 * itemIntro); // easeOutExpo
+      
+      tY = tY * introEase + (1.0 - introEase) * -15.0; // Fly up from bottom
+      tRotX += (1.0 - introEase) * Math.PI; // Spin wildly while flying in
+      
+      // Hover Micro-interaction Lift
+      if (mesh.userData.hoverState === undefined) mesh.userData.hoverState = 0.0;
+      if (mesh === this.hoveredMesh) {
+         mesh.userData.hoverState += (1.0 - mesh.userData.hoverState) * 0.15;
+      } else {
+         mesh.userData.hoverState += (0.0 - mesh.userData.hoverState) * 0.15;
+      }
+      let hover = mesh.userData.hoverState;
+      tZ += hover * 0.4; // Lift towards camera
+      
+      let p = 0;
+      if (mesh === this.selectedMesh) {
+         if (this.isAnimatingToIframe) {
+             this.animProgress += 0.025; // Animation speed
+             if (this.animProgress >= 1) {
+                 this.animProgress = 1;
+                 this.isAnimatingToIframe = false;
+                 this.openIframeView(mesh.userData.url);
+             }
+         } else if (this.isAnimatingFromIframe) {
+             this.animProgress -= 0.025;
+             if (this.animProgress <= 0) {
+                 this.animProgress = 0;
+                 this.isAnimatingFromIframe = false;
+                 this.selectedMesh = null;
+             }
+         }
+         p = this.animProgress;
+      }
+      
+      // Easing function (easeInOutQuad)
+      let ease = p < 0.5 ? 2 * p * p : -1 + (4 - 2 * p) * p;
+      
+      // Calculate dynamic scale to match the 90vw x 90vh iframe perfectly
+      let targetZ = 3.3; 
+      let dist = config.cameraPosition[2] - targetZ; 
+      let vFov = (35 * Math.PI) / 180;
+      let visibleHeight = 2.0 * dist * Math.tan(vFov / 2);
+      let visibleWidth = visibleHeight * (window.innerWidth / window.innerHeight);
+      
+      let targetScaleX = (visibleWidth * 0.9) / config.itemWidth;
+      let targetScaleY = (visibleHeight * 0.9) / config.itemHeight;
+      
+      mesh.scale.x = 1.0 + (targetScaleX - 1.0) * ease;
+      mesh.scale.y = 1.0 + (targetScaleY - 1.0) * ease;
+      
+      // Interpolate position
+      mesh.position.x = tX + (0 - tX) * ease;
+      mesh.position.y = tY + (0 - tY) * ease;
+      mesh.position.z = tZ + (targetZ - tZ) * ease;
+      
+      // Interpolate rotation to perfectly flat
+      mesh.rotation.x = tRotX + (0 - tRotX) * ease;
+      mesh.rotation.y = tRotY + (0 - tRotY) * ease;
+      mesh.rotation.z = tRotZ + (0 - tRotZ) * ease;
+      
+      // Interpolate bend radius to flat
+      let startInvR = 1.0 / config.baseRadius;
+      let invR = startInvR * (1.0 - ease);
+      let currentRadius = invR > 0.001 ? 1.0 / invR : 1000.0;
+      mesh.material.uniforms.uRadius.value = currentRadius;
       
       // Fade out at the top and bottom bounds
       let distFromCenter = Math.abs(centeredT);
-      let opacity = 1.0 - (distFromCenter / (totalItems / 2.5));
-      opacity = Math.max(0, Math.min(1, opacity));
+      let tOpacity = 1.0 - (distFromCenter / (totalItems / 2.5));
+      tOpacity = Math.max(0, Math.min(1, tOpacity));
       
-      // Apply uniforms
-      mesh.material.uniforms.uOpacity.value = opacity;
-      mesh.material.uniforms.uFrontFactor.value = Math.cos(angle);
+      // If expanding, opacity goes to 1 and it forces to the front
+      mesh.material.uniforms.uOpacity.value = (tOpacity + (1.0 - tOpacity) * ease) * introEase;
+      mesh.material.uniforms.uFrontFactor.value = Math.cos(angle) + (1.0 - Math.cos(angle)) * ease;
+      
+      // Hover and Polish Uniforms
+      mesh.material.uniforms.uHoverState.value = hover;
+      
+      // Depth of Field (blur items in the back)
+      let depthBlur = Math.max(0.0, 1.0 - Math.cos(angle) * 1.5);
+      mesh.material.uniforms.uBlurAmount.value = depthBlur * 8.0 * introEase; 
+      
+      // Chromatic Aberration based on scroll speed
+      mesh.material.uniforms.uAberration.value = Math.abs(this.velocity) * 0.003;
+      
+      // Render expanded mesh on top
+      mesh.renderOrder = ease > 0 ? 999 : (hover > 0 ? 50 : 0);
     });
     
     this.renderer.render(this.scene, this.camera);
   }
   
   onClick(event) {
+    if (this.isAnimatingToIframe || this.isAnimatingFromIframe || this.isDetailOpen) return;
+    
     this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     
@@ -379,7 +569,14 @@ class TornadoSlider3D {
       const mesh = intersects[0].object;
       const index = this.meshes.indexOf(mesh);
       if (index !== -1) {
-        this.openDetailView(items[index]);
+        const item = items[index];
+        if (item.websiteUrl) {
+          this.selectedMesh = mesh;
+          this.isAnimatingToIframe = true;
+          this.animProgress = 0;
+        } else {
+          this.openDetailView(item);
+        }
       }
     }
   }
@@ -419,6 +616,30 @@ class TornadoSlider3D {
     setTimeout(() => {
       this.detailGrid.innerHTML = '';
     }, 500);
+  }
+
+  openIframeView(url) {
+    if (this.isDetailOpen) return;
+    this.isDetailOpen = true;
+    
+    // Hide all iframes, then show the requested one
+    Object.values(this.iframes).forEach(iframe => {
+        iframe.style.display = 'none';
+    });
+    if (this.iframes[url]) {
+        this.iframes[url].style.display = 'block';
+    }
+    
+    this.iframeLightbox.classList.remove('hidden');
+    document.querySelector('.header').classList.add('hidden');
+  }
+
+  closeIframeView() {
+    this.isDetailOpen = false;
+    this.iframeLightbox.classList.add('hidden');
+    document.querySelector('.header').classList.remove('hidden');
+    this.isAnimatingFromIframe = true;
+    // We intentionally don't clear the src so it stays preloaded in the background
   }
 }
 

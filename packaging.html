@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packaging - STUDIO</title>
+  <meta name="description" content="Packaging visualization and photorealistic CGI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="packaging-page">
+  <!-- Custom Cursor / Magnetic Cursor Area -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="header__logo">GEETHUB</a>
+    <nav class="header__nav">
+      <a href="index.html" class="header__link">Photo</a>
+      <a href="landscape.html" class="header__link">Video</a>
+      <a href="packaging.html" class="header__link active">Packaging</a>
+    </nav>
+  </header>
+
+  <!-- Image Sequence Canvas -->
+  <div class="video-container">
+    <canvas id="packaging-canvas"></canvas>
+  </div>
+
+  <!-- Magnetic Navigation Arrows -->
+  <div class="nav-arrows">
+    <div class="arrow-wrap prev-arrow-wrap">
+      <div class="magnetic-arrow" id="prev-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+        <img src="Packaging/frames/frame_0000.jpg" alt="Previous Slide" class="arrow-thumbnail">
+      </div>
+    </div>
+    <div class="arrow-wrap next-arrow-wrap">
+      <div class="magnetic-arrow" id="next-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+        <img src="Packaging/frames/frame_0000.jpg" alt="Next Slide" class="arrow-thumbnail">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Container for video scrubbing (creates scroll height) -->
+  <main class="slider-container" id="slider-container">
+    <!-- Blank space to allow scrolling. The height of this container determines scrub length -->
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="packaging.js"></script>
+  <script src="transition.js"></script>
+</body>
+</html>

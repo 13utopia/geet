@@ -14,14 +14,12 @@
   <canvas id="gallery-canvas"></canvas>
 
   <header class="header">
-    <a href="index.html" class="header__logo">STUDIO</a>
+    <a href="index.html" class="header__logo">GEETHUB</a>
     <nav class="header__nav">
       <a href="index.html" class="header__link">Photo</a>
-      <a href="landscape.html" class="header__link active">Landscape</a>
-      <a href="#" class="header__link">About</a>
-      <a href="#" class="header__link">Contact</a>
+      <a href="landscape.html" class="header__link active">Video</a>
+      <a href="packaging.html" class="header__link">Packaging</a>
     </nav>
-    <a href="mailto:hello@studio.com" class="header__email">hello@studio.com</a>
   </header>
 
   <div class="labels-layer" id="labels-layer"></div>
@@ -75,8 +73,21 @@
     </div>
   </div>
 
+  <!-- Iframe Lightbox Overlay -->
+  <div class="iframe-lightbox hidden" id="iframe-lightbox">
+    <button class="iframe-lightbox__close" id="close-iframe">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="iframe-lightbox__content">
+      <!-- Iframes are injected and preloaded by JS -->
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
   <script src="landscape.js"></script>
+  <script src="transition.js"></script>
 </body>
 </html>

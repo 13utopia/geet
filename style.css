@@ -46,11 +46,18 @@ body {
   left: 0;
   width: 100%;
   padding: 2.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  z-index: 10;
+  z-index: 1000;
   pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.header.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none !important;
 }
 
 .header__logo {
@@ -65,17 +72,20 @@ body {
 
 .header__nav {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;
   pointer-events: auto;
+  justify-self: center;
 }
 
 .header__link {
+  font-family: var(--font-display);
   color: var(--accent-color);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: color 0.3s ease;
+  letter-spacing: 0.15em;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .header__link:hover, .header__link.active {
@@ -83,9 +93,12 @@ body {
 }
 
 .header__email {
+  font-family: var(--font-display);
   color: var(--text-color);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   pointer-events: auto;
 }
 
@@ -216,16 +229,26 @@ body {
   position: absolute;
   top: 2.5rem;
   right: 3rem;
-  background: none;
-  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-color);
   cursor: pointer;
   z-index: 30;
-  transition: transform 0.3s ease;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .detail-view__close:hover {
-  transform: rotate(90deg);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
 .detail-view__left {
@@ -380,3 +403,228 @@ body {
     right: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   Packaging Page Styles
+   ========================================================================== */
+.packaging-page {
+  overflow: auto; /* Let Lenis handle the scroll body */
+  cursor: none; /* Hide default cursor */
+}
+
+/* Hide cursor on header links when using custom cursor */
+.packaging-page a,
+.packaging-page button {
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+#packaging-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Note: object-fit cover doesn't work out-of-the-box on canvas without js logic, but we'll draw it scaled in JS */
+}
+
+/* Magnetic Arrows */
+.nav-arrows {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4rem;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.arrow-wrap {
+  pointer-events: auto;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Visual debugging: border: 1px solid rgba(255,255,255,0.1); */
+}
+
+.magnetic-arrow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.arrow-icon {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.arrow-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.arrow-wrap:hover .magnetic-arrow {
+  border-color: rgba(255,255,255,0.8);
+}
+
+.arrow-wrap:hover .arrow-thumbnail {
+  opacity: 1;
+}
+
+.arrow-wrap:hover .arrow-icon {
+  opacity: 0;
+}
+
+/* Slider Sections */
+.slider-container {
+  position: relative;
+  z-index: 10;
+  height: 400vh; /* Allow scrolling to scrub video */
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-arrows {
+    padding: 0 1rem;
+  }
+  .arrow-wrap {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+/* Iframe Lightbox */
+.iframe-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.iframe-lightbox.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.iframe-lightbox__close {
+  position: absolute;
+  top: 2.5rem;
+  right: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  cursor: pointer;
+  z-index: 201;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iframe-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.iframe-lightbox__content {
+  position: absolute;
+  top: 5vh;
+  bottom: 5vh;
+  left: 5vw;
+  right: 5vw;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+#lightbox-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Page Transition Overlay */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translateY(0);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.page-transition--loaded {
+  transform: translateY(-100%);
+}
+
+.page-transition--prepare-leave {
+  transform: translateY(100%) !important;
+}
+
+.page-transition--leaving {
+  transform: translateY(0) !important;
+}
+
