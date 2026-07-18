@@ -2,7 +2,7 @@
 const originalItems = [
   {
     "id": "13utopia",
-    "img": "website/13utopia.png",
+    "img": "website/13utopia.webp",
     "websiteUrl": "https://13utopia.com/",
     "name1": "13utopia",
     "name2": "",
@@ -11,7 +11,7 @@ const originalItems = [
   },
   {
     "id": "thedietdiary",
-    "img": "website/thedietdiary.in.png",
+    "img": "website/thedietdiary.in.webp",
     "websiteUrl": "https://thedietdiary.in/",
     "name1": "The Diet",
     "name2": "Diary",
@@ -20,7 +20,7 @@ const originalItems = [
   },
   {
     "id": "lotusimpex",
-    "img": "website/lotusimpex.co.in.png",
+    "img": "website/lotusimpex.co.in.webp",
     "websiteUrl": "https://lotusimpex.co.in/",
     "name1": "Lotus",
     "name2": "Impex",
@@ -29,7 +29,7 @@ const originalItems = [
   },
   {
     "id": "taowater",
-    "img": "website/taowater.13utopiabizboost.com.png",
+    "img": "website/taowater.13utopiabizboost.com.webp",
     "websiteUrl": "https://taowater.13utopiabizboost.com/",
     "name1": "Tao",
     "name2": "Water",
@@ -38,7 +38,7 @@ const originalItems = [
   },
   {
     "id": "swaadus",
-    "img": "website/swaadus.com.png",
+    "img": "website/swaadus.com.webp",
     "websiteUrl": "https://swaadus.com/",
     "name1": "Swaadus",
     "name2": "",
@@ -47,7 +47,7 @@ const originalItems = [
   },
   {
     "id": "13utopiabizboost",
-    "img": "website/13utopiabizboost.com.png",
+    "img": "website/13utopiabizboost.com.webp",
     "websiteUrl": "https://13utopiabizboost.com/",
     "name1": "Biz",
     "name2": "Boost",
@@ -56,7 +56,7 @@ const originalItems = [
   },
   {
     "id": "kumarcotton",
-    "img": "website/kumarcotton.com.png",
+    "img": "website/kumarcotton.com.webp",
     "websiteUrl": "https://kumarcotton.com/",
     "name1": "Kumar",
     "name2": "Cotton",
@@ -65,7 +65,7 @@ const originalItems = [
   },
   {
     "id": "tanyadentalhouse",
-    "img": "website/tanyadentalhouse.in.png",
+    "img": "website/tanyadentalhouse.in.webp",
     "websiteUrl": "https://tanyadentalhouse.in/",
     "name1": "Tanya",
     "name2": "Dental",

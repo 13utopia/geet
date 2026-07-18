@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const context = canvas.getContext("2d");
 
   const frameCount = 240; 
-  const currentFrame = (index) => `Packaging/frames/frame_${String(index).padStart(4, '0')}.jpg`;
+  const currentFrame = (index) => `Packaging/frames/frame_${String(index).padStart(4, '0')}.webp`;
 
   const images = [];
   const sequenceConfig = {
